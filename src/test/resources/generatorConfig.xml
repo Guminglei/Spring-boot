@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="MySQLTables" targetRuntime="MyBatis3">
+
+		<commentGenerator>
+			<!--是否取消注释（默认false），一定要保留@mbggenerated,MBG通过该字符串来判断代码是否为代码生成器生成的代码， 有该标记的的代码在重新生成的时候会被删除，不会重复。不会在XML中出现重复元素。 -->
+			<property name="suppressAllComments" value="false" />
+
+			<!--是否生成注释代时间戳（默认false），建议设为true，避免重复提交 -->
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+
+		<!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@192.168.2.39:1521:ORCL" userId="kd_sale_dx"
+			password="1">
+		</jdbcConnection> -->
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/cdkj?zeroDateTimeBehavior=convertToNull&amp;characterEncoding=UTF-8&amp;rewriteBatchedStatements=true" 
+			userId="root" password="123456"> </jdbcConnection> 
+
+		<javaTypeResolver>
+			<!-- 把jdbc中的decimal与numberic类型转化为java.math.BigDecimal类型 默认情况下的转换规则为： 如果精度>0或者长度>18，就会使用java.math.BigDecimal 
+				如果精度=0并且10<=长度<=18，就会使用java.lang.Long 如果精度=0并且5<=长度<=9，就会使用java.lang.Integer 
+				如果精度=0并且长度<5，就会使用java.lang.Short -->
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- <javaModelGenerator targetPackage="com.cedaotech.cps.model.channel" targetProject="src/main/java"/>
+		<sqlMapGenerator targetPackage="com.cedaotech.cps.dao.coreds.channel"
+			targetProject="src/main/resources" />
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.cedaotech.cps.dao.coreds.channel" targetProject="src/main/java" /> -->
+
+	<!-- 	 <javaModelGenerator targetPackage="com.cedaotech.cps.model.register" targetProject="src/main/java" /> 
+		 <sqlMapGenerator targetPackage="com.cedaotech.cps.dao.coreds.register" 
+			targetProject="src/main/resources" /> <javaClientGenerator type="XMLMAPPER" 
+			targetPackage="com.cedaotech.cps.dao.coreds.register" targetProject="src/main/java" 
+			/>  -->
+			
+	<javaModelGenerator targetPackage="com.hello.boot1.demo.user" targetProject="src/main/java"/>
+		<sqlMapGenerator targetPackage="com.hello.boot1.dao.mapper.user"
+			targetProject="src/main/resources" />
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.hello.boot1.dao.mapper.user" targetProject="src/main/java" />
+
+       <!--  <table tableName="cps_channel_config" domainObjectName="ChannelConfig" enableCountByExample="fasle" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="true" enableUpdateByPrimaryKey="true">
+        </table> -->
+        <table tableName="cd_user" domainObjectName="UserInfo" enableCountByExample="fasle" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="true" enableUpdateByPrimaryKey="true">
+        </table>
+       <!--  <table tableName="cps_access_statistics" domainObjectName="AccessCount" enableCountByExample="fasle" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="true" enableUpdateByPrimaryKey="true">
+        </table>  -->
+ <!-- maven 启动指令 mybatis-generator:generate -->     
+	</context>
+</generatorConfiguration>
